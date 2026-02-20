@@ -1,0 +1,48 @@
+﻿{% extends 'classrooms/base.html' %}
+
+{% block content %}
+    <CENTER>
+        <! ЛЕВАЯ СТОРОНА -->
+        <div class="Ramka1 dop2 not_Ramka1 not_background-image">
+            <b>Ученики</b><br>
+        {% for person in members %}
+            {% if person.member.roles == 'student' %}
+            <div class="header_lag  widht_95  Ellipse1">
+                <div id="Div2">
+                    {{ person.member.first_name }} {{ person.member.last_name }}
+                </div>
+                <div id="Div15">
+                    Средний балл: {{ person.medium_mark }}
+                </div>
+                <div id="Div3">
+
+                    <a href="{% url 'classrooms:works' user_login=person.member.username class_key=classroom_key %}">Работы</a>
+                    {% if is_admin and person.member.username != name_of_admin %}
+                    <a href="{% url 'classrooms:delete_user' delete_key=classroom_key deleted_username=person.member.username %}">Удалить</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+
+        <! ПРАВАЯ СТОРОНА -->
+        <div class="Ramka1 dop2 not_Ramka1 not_background-image">
+            <b>Учителя</b><br>
+        {% for person in members %}
+            {% if person.member.roles == 'teacher' %}
+            <div class="header_lag  widht_95  Ellipse1">
+                <div id="Div2">
+                    {{ person.member.first_name }} {{ person.member.last_name }}
+                </div>
+                <div id="Div3">
+                    {% if is_admin and person.member.username != name_of_admin %}
+                    <a href="{% url 'classrooms:delete_user' delete_key=classroom_key deleted_username=person.member.username %}">Удалить</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+        </div>
+    </CENTER>
+{% endblock %}

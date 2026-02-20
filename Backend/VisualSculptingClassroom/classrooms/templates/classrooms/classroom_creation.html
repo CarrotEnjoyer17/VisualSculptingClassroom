@@ -1,0 +1,13 @@
+﻿{% extends 'classrooms/base.html' %}
+{% block content %}
+<form action = "{% url 'classrooms:classroom_creation' %}" method = "POST">
+ {% csrf_token %}
+ <div class="Ramka1">
+            <B><p>Создание класса</p></B>
+            <p>{{ form.name }}</p>
+            <p>{{ form.key }}</p>
+            <p>{{ form.creator }}</p>
+            <p><button class="favorite styled" type="submit">Создать</button></p>
+        </div>
+</form>
+{% endblock %}

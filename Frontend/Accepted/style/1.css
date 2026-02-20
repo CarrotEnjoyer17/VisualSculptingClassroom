@@ -1,0 +1,137 @@
+body {
+			background-color: #d3d3d3;
+			/* Цвет фона веб-страницы */
+			font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+			font-size: medium;
+			color: blueviolet;
+		}
+		a {
+			text-decoration: none;
+		}
+		.header_lag {
+			display: flex;
+			/*выравнивание по центру по вертикали*/
+			align-items: center;
+			/*раскидываем по сторонам*/
+			justify-content: space-between;
+			border: 3px solid blueviolet;
+			border-radius: 20px 20px 150px 150px;
+			padding-top: 5px;
+			padding-bottom: 10px;
+			margin-bottom: 5%;
+            margin-left: 0%;
+            padding-left: 2%;
+            padding-right: 2%;
+		}
+		.onfon {
+			background-image: url("../img/image.png");
+			border-image-repeat: stretch;
+			background-size: 100%;
+		}
+		.textBlock {
+            padding-right: 10px;
+			display: table-cell;
+			width: 40%;
+			height: 600px;
+			background-repeat: no-repeat;
+            text-align: justify;
+
+		}
+
+
+
+        .Ramka1 {
+            display: block;
+            height: auto;
+            border: 2px solid blueviolet;
+            width: auto;
+            min-width:300px;
+            margin: 0 40% 0 40%;
+
+            text-align: center;
+            vertical-align: middle;
+            line-height: 90px;
+            font-size: 35px;
+            padding: 0 20px;
+            font-size: x-large;
+            text-align: center;
+            color: blueviolet;
+            /*text-shadow: 1px 1px 1px #000;*/
+            border-radius: 10px;
+            /*background-color: rgba(0, 0, 0, 1);*/
+            background-image: linear-gradient( to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0) );
+            /*box-shadow: inset -2px -2px 3px blueviolet, inset 2px 2px 3px blueviolet;*/
+            padding-bottom:30px;
+        }
+.dop2 {
+    width: 45%;
+    margin:auto;
+    display: inline-block;
+}
+.not_background-image{
+background-image:none;
+}
+
+    .Ellipse1 {
+
+            border-radius: 30px;
+            border: 1px solid blueviolet;
+            line-height: 20px;
+        }
+
+
+
+    .not_Ramka1 {
+        border: 0px solid blueviolet;
+        }
+
+
+        .styled {
+            line-height: 150%;
+            padding: 0 20px;
+            font-size: x-large;
+            text-align: center;
+            color: blueviolet;
+            text-shadow: 1px 1px 1px #000;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 1);
+            background-image: linear-gradient( to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0) );
+            box-shadow: inset -2px -2px 3px blueviolet, inset 2px 2px 3px blueviolet;
+        }
+.widht_95 {
+    width: 95%;
+    margin: auto;
+}
+    .widht_70 {
+        width: 70%;
+        }
+    .margin_auto {
+            margin-bottom: 10px;
+            margin-left: 15%;
+        }
+    .m1 {
+    font-size:medium;
+        }
+.m2{
+    font-size:small;
+}
+
+    .left_align {
+        text-align: left;
+    }
+
+    .right_align {
+        text-align: right;
+    }
+
+.rectangle1 {
+    height: 50px;
+    width: 50px;
+    background-image: linear-gradient( to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0) );
+}
+
+.s1 {
+    margin-left: 40px;
+    margin-top: 30px;
+
+}

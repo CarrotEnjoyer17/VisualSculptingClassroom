@@ -1,0 +1,14 @@
+﻿{% extends 'classrooms/base.html' %}
+{% load static %}
+
+{% block content %}
+	<center><b>Работы {{ user.first_name }} {{ user.last_name }}</b></center>
+	<div style = "display:inline;display: flex; justify-content: center; align-items: center;border-spacing:10px;">
+			{% for work in all_works %}
+        	<div class = "Ramka1 dop2 not_Ramka1 new-width" style = "border-width:3px;"><a href = '{% url "classrooms:work_big" author_login=user.username classroom_key=class_key work_pk=work.pk %}' style = "color:blueviolet">{{ work.name }}</a></div>
+			{% endfor %}
+			{% if looking == user.username %}
+			<div><a href = '{% url "classrooms:work_adding" class_key %}'><img src="{% static 'img/i1.png' %}" class = " new-width" width ="150px" height="150px" ></a></div>
+			{% endif %}
+	</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>{{ title }}</title>
+	<link type="text/css" rel="stylesheet" href="{% static 'css/1.css' %}">
+</head>
+<body vlink="#003366">
+
+	<div class="header_lag">
+
+		<div id="buttonsleft">
+                    Virtual Sculpting Classroom
+		</div>
+		<div id="buttonsright">
+			<a href='{% url "users:login" %}'>Войти | Зарегистрироваться</a>
+		</div>
+
+	</div>
+
+	{% block content %}
+    {% endblock %}
+</body>
+</html>

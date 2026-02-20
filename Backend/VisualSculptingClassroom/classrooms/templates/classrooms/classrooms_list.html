@@ -1,0 +1,39 @@
+﻿{% extends 'classrooms/base.html' %}
+{% block content %}
+	<center>
+	<b>Ваши классы</b>
+	</center>
+	{% for cl in classes %}
+		 {% if user.username == cl.member.username %}
+     		<div class="header_lag  widht_70 margin_auto Ellipse1">
+				<div id="Div2">
+					<a href = "{% url 'classrooms:class_list' cl.classroom.key %}">{{ cl.classroom.name }}</a>
+				</div>
+				<div id="Div3" title = "Сообщите его, чтобы другие могли подключиться">
+					Код класса: {{ cl.classroom.key }}
+					{% if user.username == cl.classroom.creator %}
+					<a href="{% url 'classrooms:leave_classroom' cl.classroom.key %}">Удалить</a>
+					{% else %}
+					<a href="{% url 'classrooms:leave_classroom' cl.classroom.key %}">Покинуть</a>
+					{% endif %}
+				</div>
+			</div>
+		{% endif %}
+	{% endfor %}
+    <div class="header_lag  widht_70 margin_auto Ellipse1">
+		<div id="Div8">
+			<a href="{% url 'classrooms:classroom_creation' %}">
+                     Создать новый класс
+			</a>
+		</div>
+	</div>
+
+     <div class="header_lag  widht_70 margin_auto Ellipse1">
+		<div id="Div9">
+			<a href="{% url 'classrooms:enter_classroom' user.username %}">
+                    Присоединиться к классу
+			</a>
+		</div>
+
+	</div>
+{% endblock %}

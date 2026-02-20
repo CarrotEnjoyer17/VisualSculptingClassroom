@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>RegForm_Enter</title>
+
+    <LINK TYPE="text/css" REL="stylesheet" HREF="style/1.css">
+</head>
+<body vlink="#003366">
+
+    <div class="header_lag">
+		<div id="buttonsleft">
+                    Virtual Sculpting Classroom
+		</div>
+		<div id="buttonsright">
+			<a href=#>Мой профиль</a>
+			<a href=#>Классы</a>
+            <a href=#>Выйти</a>
+
+		</div>
+	</div>
+
+
+
+
+    <CENTER>
+         <b>Пирамида(01.03.2024):</b><br>
+
+        <! ЛЕВАЯ СТОРОНА -->
+
+        <div class="Ramka1 dop2 not_Ramka1 not_background-image">
+            <div class="canvas"> <!-- Container for the 3D model -->
+            <script src="https://cdn.jsdelivr.net/npm/three@0.139.0/build/three.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/three@0.139.0/examples/js/controls/OrbitControls.js"></script>
+            <script>
+                let scene, camera, renderer, controls, objectToRotate;
+
+                init();
+                animate();
+
+                function init() {
+                    // Scene
+                    scene = new THREE.Scene();
+
+                    // Camera
+                    const aspectRatio = 16 / 9; // Aspect ratio 16:9
+                    camera = new THREE.PerspectiveCamera(75, aspectRatio, 0.1, 1000);
+                    camera.position.z = 5;
+
+                    // Renderer
+                    renderer = new THREE.WebGLRenderer();
+                    const width = 650; // Adjust width as needed
+                    const height = 525; // Adjust height as needed
+                    renderer.setSize(width, height);
+                    document.body.appendChild(renderer.domElement);
+
+                    // OrbitControls
+                    controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+                    // Pyramid
+                    const pyramidGeometry = new THREE.ConeGeometry(1, 1.5, 4);
+                    const pyramidMaterial = new THREE.MeshBasicMaterial({ color: 0x808080 });
+                    const pyramid = new THREE.Mesh(pyramidGeometry, pyramidMaterial);
+                    scene.add(pyramid);
+                    objectToRotate = pyramid;
+
+                    //Light
+                    const ambient = new THREE.AmbientLight(0xffffff, 1); // Fixed typo here
+                    scene.add(ambient);
+
+                    let light = new THREE.PointLight(0xc4c4c4,1);
+                    light.position.set(0, 300, 500);
+                    scene.add(light);
+
+                    let light2 = new THREE.PointLight(0xc4c4c4,1);
+                    light2.position.set(500, 300, 500);
+                    scene.add(light2);
+
+                    // Resize
+                    window.addEventListener('resize', onWindowResize);
+
+                    // Mouse events
+                    document.addEventListener('mousedown', onMouseDown);
+                    document.addEventListener('mousemove', onMouseMove);
+                    document.addEventListener('mouseup', onMouseUp);
+                }
+
+                function onWindowResize() {
+                    const aspectRatio = 1; // Aspect ratio 1:1
+                    camera.aspect = aspectRatio;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(500, 500); // Size 500x500
+                }
+
+                function onMouseDown(event) {
+                    controls.enabled = false;
+                }
+
+                function onMouseMove(event) {
+                    // Rotate
+                    if (controls.enabled === false) {
+                        const deltaX = event.movementX || event.mozMovementX || event.webkitMovementX || 0;
+                        const deltaY = event.movementY || event.mozMovementY || event.webkitMovementY || 0;
+                        objectToRotate.rotation.y -= deltaX * 0.01;
+                        objectToRotate.rotation.x -= deltaY * 0.01;
+                    }
+                }
+
+                function onMouseUp(event) {
+                    controls.enabled = true;
+                }
+
+                function animate() {
+                    requestAnimationFrame(animate);
+                    controls.update();
+                    renderer.render(scene, camera);
+                }
+            </script>
+        </div>
+
+
+
+        </div>
+
+
+
+        <! ПРАВАЯ СТОРОНА -->
+
+
+
+
+        <div class="Ramka1 dop2 not_Ramka1 not_background-image">
+            <u><b>Оценки</b></u><br>
+            <! 1 -->
+            <div class="header_lag  widht_95  Ellipse1">
+                <div id="Div11">
+                        Атон Велопалов
+                </div>
+                <div id="Div12">
+                    4
+                </div>
+            </div>
+
+            <! 2 -->
+            <div class="header_lag  widht_95  Ellipse1">
+                <div id="Div13">
+                        Екатерина Адронова
+                </div>
+                <div id="Div14">
+                  5
+                </div>
+            </div>
+        </div>
+    </CENTER>
+	<a href="" class="favorite styled" type="button" style="text-decoration:none;">Скачать</a>
+</body>
+</html>

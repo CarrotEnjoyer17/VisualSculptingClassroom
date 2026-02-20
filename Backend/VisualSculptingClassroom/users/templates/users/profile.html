@@ -1,0 +1,20 @@
+﻿{% extends 'classrooms/base.html' %}
+
+{% block content %}
+<form action="{% url 'users:profile' user.pk %}" method = 'post' enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="Ramka1" >
+        <B> <p style="margin-bottom: 0px " >Данные профиля</p>
+        <p class="m2" style="margin-top: -15px; margin-bottom: -50px; font-size: 18px;">Имя:</p>
+        {{ form.first_name }}
+        <p class="m2" style="margin-top: 0px; margin-bottom: -50px;font-size: 18px ">Фамилия:</p>
+        {{ form.last_name }}
+        <p class="m2" style="margin-top: 0px; margin-bottom: -50px;font-size: 18px">Логин:</p>
+        {{ form.username }}
+        <p class="m2" style="margin-top: 0px; margin-bottom: -50px;font-size: 18px">Вы:</p>
+        <p style ="font-size:18px;">{{ user.get_roles_display }}</p>
+        </B>
+        <p><input class="favorite styled" type="submit" value="Изменить"></button></p>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'classrooms/base.html' %}
+
+{% block content %}
+<form action = "{% url 'classrooms:work_adding' key %}" method = "POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class=" Ramka1" >
+        <B><p style="margin-bottom: 0px " >Добавление работы</p></B>
+        {{ form.name }}
+        <B><p style = "font-size:15px; margin-bottom:-50px;">Загрузите модель</p></B>
+        {{ form.file_model }}
+        <B><p style = "font-size:15px; margin-bottom:-50px;">Загрузите дополнительные файлы</p></B>
+        {{ form.file_sup }}
+    	<B><p style = "font-size:15px; margin-bottom:-50px;">Загрузите текстуры(если они есть)</p></B>
+        {{ form.file_textures }}
+        <p><input class="favorite styled" style="margin-top: 50px" type="submit" value="Добавить"></p>
+    </div>
+</form>
+{% endblock %}
